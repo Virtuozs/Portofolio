@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&subset=latin');
+
+@import 'tailwindcss';
+
+@theme {
+  --color-space-background: #05050f;
+  --color-space-shadow: #1a1a2e;
+  --color-space-accent1: #5c3c92;
+  --color-space-accent2: #ff6ec7;
+  --color-space-highlight: #00eaff;
+  --color-space-stars: #eaeaea;
+  --color-space-cta: #ff9a00;
+
+  --font-sans: "Poppins", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --shadow-glow: 0 0 20px rgba(0, 234, 255, 0.6);
+  --shadow-cta: 0 0 15px rgba(255, 154, 0, 0.7);
+
+  --bg-space-gradient: linear-gradient(145deg, #0b0c27, #0e0e16);
+}
+
+@layer base {
+  :root{
+    width: 100vw;
+    height: 100vh;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-space-gradient);
+    color: var(--color-space-stars);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--color-space-highlight);
+  }
+
+  a {
+    color: var(--color-space-accent1);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-space-accent2);
+  }
+}
