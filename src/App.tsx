@@ -1,7 +1,8 @@
 import * as THREE from "three"
 import { Canvas } from "@react-three/fiber"
-import Earth from "./components/3d/earth/Earth"
 import { OrbitControls } from "@react-three/drei";
+import StarField from "./components/3d/stars/StarField";
+import Mars from "./components/3d/mars/Mars";
 
 const sunDirection = new THREE.Vector3(-2, 0.6, 1.4);
 
@@ -10,9 +11,8 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-transparent">
-      {/* 3D Canvas */}
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 10 }}
+        camera={{ position: [0, 0, 10], fov: 10 }}
         gl={{
           toneMapping: THREE.NoToneMapping,
           antialias: true,
@@ -22,13 +22,14 @@ function App() {
         dpr={window.devicePixelRatio}
         className="absolute inset-0 z-0"
       >
-        <Earth />
+        <StarField/>
+        {/* <Earth/> */}
+        <Mars sunDirection={sunDirection} />
         <hemisphereLight args={[0xffffff, 0x000000, 3.0]} />
         <directionalLight position={[x, y, z]} />
         <OrbitControls enableZoom={false} enablePan={true} enableRotate={false} />
       </Canvas>
 
-      {/* Overlay Text */}
       <div className="absolute top-24 left-0 z-20 flex flex-col items-center w-full h-full text-white text-center px-4">
         <h1 className="text-4xl font-bold">Lorem Ipsum</h1>
         <p className="mt-4 text-lg">Dolor Amet</p>
