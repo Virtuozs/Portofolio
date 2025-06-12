@@ -5,7 +5,6 @@ interface FresnelShaderArgs{
     facingHex?: number;
 }
 
-interface AtmosphereMeshProps extends FresnelShaderArgs {}
 
 function getFresnelShaderArgs({
     rimHexColor = 0x87CEFA,
@@ -63,13 +62,13 @@ function getFresnelShaderArgs({
     }
 }
 
-const AtmosphereMesh: React.FC<AtmosphereMeshProps> = ({ rimHexColor, facingHex }) => {
+const AtmosphereMesh: React.FC<FresnelShaderArgs> = ({ rimHexColor, facingHex }) => {
   const shaderArgs = getFresnelShaderArgs({ rimHexColor, facingHex });
 
   return (
     <mesh>
       <icosahedronGeometry args={[2.012, 32]} />
-      <shaderMaterial attach="material" args={[shaderArgs as any]} />
+      <shaderMaterial attach="material" args={[shaderArgs as THREE.ShaderMaterialParameters]} />
     </mesh>
   );
 };

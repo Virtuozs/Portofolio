@@ -3,26 +3,27 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 
 interface MarsMaterialProps {
-    sunDirection?: THREE.Vector3; 
+  sunDirection?: THREE.Vector3;
 }
 
 const defaultSunDirection = new THREE.Vector3(-2, 0.6, 1.4).normalize();
 
-function getMarsMaterial({ sunDirection = defaultSunDirection }: MarsMaterialProps) {
-    const dayMap = useLoader(THREE.TextureLoader, "./textures/mars/8k_mars.jpg");
-    dayMap.anisotropy = 16;
+const MarsMaterial: React.FC<MarsMaterialProps> = ({ sunDirection = defaultSunDirection }) => {
+  const dayMap = useLoader(THREE.TextureLoader, "./textures/mars/8k_mars.jpg");
+  dayMap.anisotropy = 16;
 
+  const material = useMemo(() => {
     const uniforms = {
-        dayTexture: { value: dayMap },
-        sunDirection: { value: sunDirection },
+      dayTexture: { value: dayMap },
+      sunDirection: { value: sunDirection },
     };
 
     const vertexShader = `
-        varying vec2 vUv;
-        varying vec3 vNormal;
-        varying vec3 vPosition;
+      varying vec2 vUv;
+      varying vec3 vNormal;
+      varying vec3 vPosition;
 
-        void main() {
+      void main() {
         vec4 modelPosition = modelMatrix * vec4(position, 1.0);
         gl_Position = projectionMatrix * viewMatrix * modelPosition;
 
@@ -31,17 +32,18 @@ function getMarsMaterial({ sunDirection = defaultSunDirection }: MarsMaterialPro
         vUv = uv;
         vNormal = modelNormal;
         vPosition = modelPosition.xyz;
-    }`;
+      }
+    `;
 
     const fragmentShader = `
-        uniform sampler2D dayTexture;
-        uniform vec3 sunDirection;
+      uniform sampler2D dayTexture;
+      uniform vec3 sunDirection;
 
-        varying vec2 vUv;
-        varying vec3 vNormal;
-        varying vec3 vPosition;
+      varying vec2 vUv;
+      varying vec3 vNormal;
+      varying vec3 vPosition;
 
-        void main() {
+      void main() {
         vec3 viewDirection = normalize(vPosition - cameraPosition);
         vec3 normal = normalize(vNormal);
 
@@ -50,17 +52,15 @@ function getMarsMaterial({ sunDirection = defaultSunDirection }: MarsMaterialPro
         baseColor *= clamp(light, 0.1, 1.0);
 
         gl_FragColor = vec4(baseColor, 1.0);
-    }`;
+      }
+    `;
 
     return new THREE.ShaderMaterial({
-        uniforms,
-        vertexShader,
-        fragmentShader,
+      uniforms,
+      vertexShader,
+      fragmentShader,
     });
-}
-
-const MarsMaterial: React.FC<MarsMaterialProps> = ({ sunDirection }) => {
-  const material = useMemo(() => getMarsMaterial({ sunDirection }), [sunDirection]);
+  }, [dayMap, sunDirection]);
 
   return <primitive object={material} attach="material" />;
 };
