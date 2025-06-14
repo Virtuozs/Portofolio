@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import { generateStars } from './generateStars';
 import StarfieldMaterial from './StarFieldMaterial';
 
-const NUM_STARS = 1000;
+const NUM_STARS = 2000;
 
 const StarField: React.FC = () => {
   const pointsRef = useRef<THREE.Points>(null);

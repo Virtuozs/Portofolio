@@ -10,27 +10,13 @@ import CameraScrollAnimation from './components/3d/cameraScrollAnimation';
 import FadeInSection from './components/effect/fadeInSection';
 import Hero from './pages/hero';
 import About from './pages/about';
+// import AsteroidBelt from './components/3d/asteroid/AsteroidBelt';
 
 function App() {
   const scrollElRef = useRef<HTMLElement | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = 2;
 
-  // const snapToPage = useCallback((pageIndex: number) => {
-  //   if (!scrollElRef.current) return;
-
-  //   const container = scrollElRef.current;
-  //   const pageHeight = container.scrollHeight / totalPages;
-  //   const targetScrollTop = pageHeight * pageIndex;
-
-  //   gsap.to(container, {
-  //     scrollTop: targetScrollTop,
-  //     duration: 1,
-  //     ease: 'power2.inOut',
-  //   });
-
-  //   setCurrentPage(pageIndex);
-  // }, [totalPages]);
   const snapToPage = useCallback((pageIndex: number) => {
   if (!scrollElRef.current) return;
 
@@ -40,7 +26,7 @@ function App() {
 
   gsap.to(container, {
     scrollTop: targetScrollTop,
-    duration: 4.0, // Slightly longer = smoother
+    duration: 4.0,
     ease: 'power4.out',
   });
 
@@ -71,7 +57,7 @@ function App() {
       <Canvas camera={{ position: [0, 0, 0], fov: 25 }} gl={{ antialias: true, alpha: true }}>
         <ScrollControls
           pages={totalPages}
-          damping={0.1}
+          damping={0.3}
           enabled={true}
         >
           <ScrollContent onScrollReady={(el) => (scrollElRef.current = el)} />
@@ -92,10 +78,33 @@ function ScrollContent({ onScrollReady }: { onScrollReady: (el: HTMLElement) => 
   return (
     <>
       <StarField />
-      <Scroll>
+      {/* <Scroll>
         <Earth position={[3.5, -1.2, -6]} scale={1.2} />
-        <Mars position={[0, -0.5, 5]} scale={0.3} />
+        <Mars position={[0, -0.5, 60]} scale={0.3} />
+        <group position={[0, 0, 80]} name='AsteroidBelt'>
+          <AsteroidBelt
+            count={50}
+            innerRadius={5}
+            outerRadius={8}
+            baseTextureUrl="./textures/asteroid/4k_asteroid.jpg"
+            logoTextureUrls={["./logo/javascript.png"]}
+            minDistance={0.5}
+            maxDistance={40}
+          />
+        </group>
+
+      </Scroll> */}
+
+      <Scroll>
+        <group>
+          <Earth position={[2.3, -1.2, -6]} scale={1.2} />
+        </group>
+
+        <group>
+          <Mars position={[-1.2, -2.5, 60]} scale={0.3} />
+        </group>
       </Scroll>
+
 
       <Scroll html>
         <section className="h-screen w-screen flex justify-start items-center px-20">
@@ -114,3 +123,4 @@ function ScrollContent({ onScrollReady }: { onScrollReady: (el: HTMLElement) => 
 }
 
 export default App;
+

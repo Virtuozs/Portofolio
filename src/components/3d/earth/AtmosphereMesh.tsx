@@ -67,7 +67,7 @@ const AtmosphereMesh: React.FC<FresnelShaderArgs> = ({ rimHexColor, facingHex })
 
   return (
     <mesh>
-      <icosahedronGeometry args={[2.012, 32]} />
+      <icosahedronGeometry args={[2.03, 32]} />
       <shaderMaterial attach="material" args={[shaderArgs as THREE.ShaderMaterialParameters]} />
     </mesh>
   );
