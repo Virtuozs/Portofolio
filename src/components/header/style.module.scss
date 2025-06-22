@@ -1,0 +1,36 @@
+.header {
+  .background {
+    background-color: hsl(240 10% 3.9%);
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+
+  .bar {
+    position: relative;
+    text-transform: lowercase;
+    font-weight: 400;
+
+    a {
+      @apply no-underline text-[hsl(var(--foreground))];
+      // position: absolute;
+      // left: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .header {
+    .bar {
+      font-size: 15px;
+    }
+
+    .shop {
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
