@@ -46,7 +46,7 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={mergeClass(
-                          "font-thin text-6xl text-transparent text-slate-800 ml-1 text-left",
+                          "font-thin text-6xl text-transparent ml-1 text-left",
                           "cursor-default text-edge-outline font-display sm:text-2xl md:text-7xl "
                         )}
                       >

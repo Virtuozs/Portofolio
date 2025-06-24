@@ -135,15 +135,25 @@ const AnimatedBackground = () => {
   const handleMouseHover = (e: SplineEvent) => {
     if (!splineApp || selectedSkill?.name === e.target.name) return;
 
+    const skillsEl = document.getElementById("skills");
+    if (!skillsEl) return;
+
+    const rect = skillsEl.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight &&
+      rect.bottom > 0;
+
+    if (!inView) return;
+
+    console.log("Hovered:", e.target.name);
+
     if (e.target.name === "body" || e.target.name === "platform") {
       setSelectedSkill(null);
-      if (splineApp.getVariable("heading") && splineApp.getVariable("desc")) {
-        splineApp.setVariable("heading", "");
-        splineApp.setVariable("desc", "");
-      }
+      splineApp.setVariable("heading", "");
+      splineApp.setVariable("desc", "");
     } else {
-      if (!selectedSkill || selectedSkill.name !== e.target.name) {
-        const skill = SKILLS[e.target.name as SkillNames];
+      const skill = SKILLS[e.target.name as SkillNames];
+      if (skill && (!selectedSkill || selectedSkill.name !== skill.name)) {
         setSelectedSkill(skill);
       }
     }
@@ -254,6 +264,7 @@ const AnimatedBackground = () => {
         teardownKeyboard.pause();
       }
       if (activeSection === "skills") {
+        // keycapAnimtations?.stop();
         await sleep(100);
       } else {
         splineApp.setVariable("heading", "");
@@ -291,6 +302,7 @@ const AnimatedBackground = () => {
     if (!splineApp || isLoading || keyboardRevealed) return;
     revealKeyCaps();
   }, [splineApp, isLoading, activeSection]);
+
   const revealKeyCaps = async () => {
     if (!splineApp) return;
     const kbd = splineApp.findObjectByName("keyboard");
@@ -300,6 +312,7 @@ const AnimatedBackground = () => {
     kbd.visible = true;
     setKeyboardRevealed(true);
     console.log(activeSection);
+    
     gsap.fromTo(
       kbd?.scale,
       { x: 0.01, y: 0.01, z: 0.01 },
@@ -343,6 +356,7 @@ const AnimatedBackground = () => {
       );
     });
   };
+
   const handleSplineInteractions = () => {
     if (!splineApp) return;
     splineApp.addEventListener("keyUp", () => {
@@ -353,12 +367,16 @@ const AnimatedBackground = () => {
     splineApp.addEventListener("keyDown", (e) => {
       if (!splineApp) return;
       const skill = SKILLS[e.target.name as SkillNames];
+      console.log("Try to show desc AAA");
+
       if (skill) setSelectedSkill(skill);
+      console.log("Try to show desc");
       splineApp.setVariable("heading", skill.label);
       splineApp.setVariable("desc", skill.shortDescription);
     });
     splineApp.addEventListener("mouseHover", handleMouseHover);
   };
+
   const handleGsapAnimations = () => {
     if (!splineApp) return;
     const kbd: SPEObject | undefined = splineApp.findObjectByName("keyboard");
@@ -522,6 +540,7 @@ const AnimatedBackground = () => {
   const getKeycapsAnimation = () => {
     if (!splineApp) return { start: () => {}, stop: () => {} };
 
+    console.log("Getting keycap animations", !!splineApp);
     const tweens: gsap.core.Tween[] = [];
     const start = () => {
       removePrevTweens();
@@ -549,7 +568,7 @@ const AnimatedBackground = () => {
         if (!keycap) return;
         const t = gsap.to(keycap?.position, {
           y: 0,
-          duration: 4,
+          duration: 3,
           repeat: 1,
           ease: "elastic.out(1,0.8)",
         });
@@ -562,6 +581,7 @@ const AnimatedBackground = () => {
     };
     return { start, stop };
   };
+
   return (
         <>
       {isLoading ? (
@@ -570,10 +590,11 @@ const AnimatedBackground = () => {
         <Suspense fallback={<KeyboardLoader />}>
           <Spline
             ref={splineContainer}
-            scene="../public/keyboard.splinecode"
+            scene="/keyboard.splinecode"
             onLoad={(app: Application) => {
               setSplineApp(app);
               setTimeout(() => bypassLoading(), 300);
+              
             }}
           />
         </Suspense>
