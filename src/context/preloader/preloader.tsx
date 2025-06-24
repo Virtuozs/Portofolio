@@ -2,7 +2,6 @@ import gsap from "gsap";
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { PreloaderContext } from "../../hooks/usePreloader";
 import { AnimatePresence } from "framer-motion";
-import KeyboardLoader from "../../components/loader/keyboard_loader";
 
 type PreloaderProps = {
     children: ReactNode;
@@ -45,7 +44,7 @@ export default function Preloader({ children, disabled = false }: PreloaderProps
 
     return (
         <PreloaderContext.Provider value={ { isLoading, loadingPercent, bypassLoading} }>
-            <AnimatePresence mode="wait">{isLoading && <KeyboardLoader/>}</AnimatePresence>
+            <AnimatePresence mode="wait">{}</AnimatePresence>
             {children}
         </PreloaderContext.Provider>
     )

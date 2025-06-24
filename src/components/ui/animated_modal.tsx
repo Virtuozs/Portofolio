@@ -1,24 +1,23 @@
-    "use client";
-    import { AnimatePresence, motion } from "framer-motion";
-    import React, {
+import { AnimatePresence, motion } from "framer-motion";
+import React, {
     type ReactNode,
     createContext,
     useContext,
     useEffect,
     useRef,
     useState,
-    } from "react";
-    import { mergeClass } from "../../libs/utils";
-    import { ScrollArea } from "./scroll_area";
+} from "react";
+import { mergeClass } from "../../libs/utils";
+import { ScrollArea } from "./scroll_area";
 
-    interface ModalContextType {
+interface ModalContextType {
     open: boolean;
     setOpen: (open: boolean) => void;
-    }
+}
 
-    const ModalContext = createContext<ModalContextType | undefined>(undefined);
+const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
-    export const ModalProvider = ({ children }: { children: ReactNode }) => {
+export const ModalProvider = ({ children }: { children: ReactNode }) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -26,40 +25,40 @@
         {children}
         </ModalContext.Provider>
     );
-    };
+};
 
-    export const useModal = () => {
+export const useModal = () => {
     const context = useContext(ModalContext);
     if (!context) {
         throw new Error("useModal must be used within a ModalProvider");
     }
     return context;
-    };
+};
 
-    export function Modal({ children }: { children: ReactNode }) {
+export function Modal({ children }: { children: ReactNode }) {
     return <ModalProvider>{children}</ModalProvider>;
-    }
+}
 
-    export const ModalTrigger = ({
+export const ModalTrigger = ({
     children,
     className,
-    }: {
+}: {
     children: ReactNode;
     className?: string;
-    }) => {
+}) => {
     const { setOpen } = useModal();
     return (
         <button
-        className={mergeClass(
-            "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden",
-            className
-        )}
-        onClick={() => setOpen(true)}
+            className={mergeClass(
+                "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden",
+                className
+            )}
+            onClick={() => setOpen(true)}
         >
         {children}
         </button>
     );
-    };
+};
 
     export const ModalBody = ({
     children,
@@ -111,7 +110,7 @@
             <motion.div
                 ref={modalRef}
                 className={mergeClass(
-                "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+                "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-accent border border-transparent md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
                 className
                 )}
                 initial={{
@@ -196,7 +195,7 @@
             opacity: 0,
             backdropFilter: "blur(0px)",
         }}
-        className={`modal-overlay fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
+        className={`modal-overlay fixed inset-0 h-full w-full bg-background/70 bg-opacity-50 z-50 ${className}`}
         onClick={() => setOpen(false)}
         ></motion.div>
     );

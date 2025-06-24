@@ -7,13 +7,8 @@ interface NavLink {
 const links: NavLink[] = [
   {
     title: 'Home',
-    href: '/',
+    href: '/#hero',
     thumbnail: '/assets/nav-link-previews/landing.png'
-  },
-  {
-    title: 'About',
-    href: '/#about',
-    thumbnail: '/assets/nav-link-previews/about.png'
   },
   {
     title: 'Skills',
@@ -24,11 +19,6 @@ const links: NavLink[] = [
     title: 'Projects',
     href: '/#projects',
     thumbnail: '/assets/nav-link-previews/projects.png'
-  },
-  {
-    title: 'Blogs',
-    href: '/blogs',
-    thumbnail: '/assets/nav-link-previews/blog.png',
   },
   {
     title: 'Contact',

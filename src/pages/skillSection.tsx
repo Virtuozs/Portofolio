@@ -10,16 +10,16 @@ const SkillsSection = () => {
           <BoxReveal width="100%">
             <h2
               className={mergeClass(
-                "bg-clip-text text-4xl text-center text-transparent md:text-7xl",
-                "bg-gradient-to-b from-black/80 to-black/50",
-                "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 "
+                "bg-clip-text text-transparent text-4xl text-center md:text-7xl",
+                "bg-gradient-to-b",
+                "from-foreground to-background",
               )}
             >
               SKILLS
             </h2>
           </BoxReveal>
         </Link>
-        <p className="mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-neutral-300">
+        <p className="mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-primary">
           (hint: press a key)
         </p>
       </div>

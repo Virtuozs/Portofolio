@@ -29,6 +29,16 @@ export default function Body({
   useEffect(() => {
     const { pathname, hash } = location;
     setCurrentHref(pathname + hash);
+
+    if (hash) {
+      // Ensure element exists and scroll to it
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 0); // allow DOM to render
+      }
+    }
   }, [location]);
 
   const getChars = (word: string) =>
@@ -50,7 +60,6 @@ export default function Body({
     <div className="flex flex-wrap mt-10 lg:mt-20 lg:max-w-[1200px] flex-col items-end md:flex-row">
       {links.map((link, index) => {
         const { title, href } = link;
-
         return (
           <Link
             key={`l_${index}`}

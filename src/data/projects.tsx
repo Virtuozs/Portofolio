@@ -1,5 +1,5 @@
-import { ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
-import type { JSX, ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiChakraui,
@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { TypographyH3, TypographyP } from "../components/ui/typography";
 import SlideShow from "../components/slide_show";
-const BASE_PATH = "/assets/projects-screenshots";
+const BASE_PATH = "/projects_assets";
 
 const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
   return (
@@ -214,24 +214,24 @@ export type Project = {
   src: string;
   screenshots: string[];
   skills: { frontend: Skill[]; backend: Skill[] };
-  content: React.ReactNode | any;
+  content: React.ReactNode | undefined;
   github?: string;
   live: string;
 };
 
 const projects: Project[] = [
   {
-    id: "codingducks",
+    id: "Project One",
     category: "Placeholder",
     title: "Project One",
-    src: `${BASE_PATH}/codingducks/landing.png`,
+    src: "",
     screenshots: ["landing.png"],
     skills: {
       frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra, PROJECT_SKILLS.reactQuery, PROJECT_SKILLS.firebase],
       backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.prisma, PROJECT_SKILLS.python, PROJECT_SKILLS.postgres, PROJECT_SKILLS.sockerio],
     },
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Naresh-Khatri/Coding-Ducks",
+    live: "",
+    github: "",
     get content() {
       return (
         <div>
@@ -241,20 +241,21 @@ const projects: Project[] = [
           <TypographyH3 className="my-4 mt-8">Section One</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <SlideShow images={[`${BASE_PATH}/codingducks/problems.png`]} />
-          <TypographyH3 className="my-4 mt-8">Section Two</TypographyH3>
-          <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur.</p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/ducklets.png`]} />
+          {/* <TypographyH3 className="my-4 mt-8">Section Two</TypographyH3> */}
+          {/* <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur.</p> */}
+          {/* <SlideShow images={[`${BASE_PATH}/codingducks/ducklets.png`]} /> */}
         </div>
       );
     },
   },
   {
-    id: "couponluxury",
+    id: "Project Two",
     category: "Placeholder",
     title: "Project Two",
-    src: `${BASE_PATH}/couponluxury/landing.png`,
+    src: ``,
     screenshots: ["1.png", "2.png", "3.png"],
-    live: "https://www.couponluxury.com/",
+    live: "",
+    github: "",
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra, PROJECT_SKILLS.vue],
       backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.prisma, PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker],
@@ -274,12 +275,12 @@ const projects: Project[] = [
     },
   },
   {
-    id: "the-booking-desk",
+    id: "Project Three",
     category: "Placeholder",
     title: "Project Three",
-    src: `${BASE_PATH}/the-booking-desk/landing.png`,
-    screenshots: ["1.png"],
-    live: "https://thebookingdesk.com/",
+    src: ``,
+    screenshots: [""],
+    live: "",
     skills: {
       frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind],
       backend: [PROJECT_SKILLS.sanity],
@@ -299,13 +300,13 @@ const projects: Project[] = [
     },
   },
   {
-    id: "portfolio",
+    id: "Portfolio",
     category: "Placeholder",
     title: "My Portfolio",
-    src: `${BASE_PATH}/portfolio/landing.png`,
+    src: ``,
     screenshots: ["1.png"],
-    live: "http://nareshkhatri.vercel.app",
-    github: "https://github.com/Naresh-Khatri/Portfolio",
+    live: "",
+    github: "",
     skills: {
       frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.shadcn, PROJECT_SKILLS.framerMotion, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.spline],
       backend: [],
@@ -323,13 +324,13 @@ const projects: Project[] = [
     },
   },
   {
-    id: "ghostchat",
+    id: "Project Five",
     category: "Placeholder",
-    title: "GhostChat",
-    src: `${BASE_PATH}/ghostchat/1.png`,
+    title: "Project Five",
+    src: ``,
     screenshots: ["1.png", "2.png"],
-    live: "https://ghostchat.vercel.app",
-    github: "https://github.com/Naresh-Khatri/GhostChat",
+    live: "",
+    github: "",
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
       backend: [PROJECT_SKILLS.supabase],
@@ -345,12 +346,12 @@ const projects: Project[] = [
     },
   },
   {
-    id: "jra",
+    id: "Project Six",
     category: "Placeholder",
-    title: "Result Analyzer",
-    src: `${BASE_PATH}/jra/1.png`,
+    title: "Project Six",
+    src: ``,
     screenshots: ["1.png"],
-    live: "https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/",
+    live: "",
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
       backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.mongo, PROJECT_SKILLS.express, PROJECT_SKILLS.docker],
