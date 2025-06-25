@@ -61,113 +61,103 @@ const PROJECT_SKILLS = {
     title: "Next.js",
     bg: "black",
     fg: "white",
-    icon: <RiNextjsFill />,
+    icon: <RiNextjsFill/>,
   },
   chakra: {
     title: "Chakra UI",
     bg: "black",
     fg: "white",
-    icon: <SiChakraui />,
+    icon: <SiChakraui/>,
   },
   node: {
     title: "Node.js",
     bg: "black",
     fg: "white",
-    icon: <RiNodejsFill />,
+    icon: <RiNodejsFill/>,
   },
   python: {
     title: "Python",
     bg: "black",
     fg: "white",
-    icon: <SiPython />,
+    icon: <SiPython/>,
   },
   prisma: {
     title: "prisma",
     bg: "black",
     fg: "white",
-    icon: <SiPrisma />,
+    icon: <SiPrisma/>,
   },
   postgres: {
     title: "PostgreSQL",
     bg: "black",
     fg: "white",
-    icon: <SiPostgresql />,
+    icon: <SiPostgresql/>,
   },
   mongo: {
     title: "MongoDB",
     bg: "black",
     fg: "white",
-    icon: <SiMongodb />,
+    icon: <SiMongodb/>,
   },
   express: {
     title: "Express",
     bg: "black",
     fg: "white",
-    icon: <SiExpress />,
+    icon: <SiExpress/>,
   },
   reactQuery: {
     title: "React Query",
     bg: "black",
     fg: "white",
-    icon: <SiReactquery />,
+    icon: <SiReactquery/>,
   },
   shadcn: {
     title: "ShanCN UI",
     bg: "black",
     fg: "white",
-    icon: <SiShadcnui />,
+    icon: <SiShadcnui/>,
   },
   tailwind: {
     title: "Tailwind",
     bg: "black",
     fg: "white",
-    icon: <SiTailwindcss />,
+    icon: <SiTailwindcss/>,
   },
   docker: {
     title: "Docker",
     bg: "black",
     fg: "white",
-    icon: <SiDocker />,
-  },
-  yjs: {
-    title: "Y.js",
-    bg: "black",
-    fg: "white",
-    icon: (
-      <span>
-        <strong>Y</strong>js
-      </span>
-    ),
+    icon: <SiDocker/>,
   },
   firebase: {
     title: "Firebase",
     bg: "black",
     fg: "white",
-    icon: <SiFirebase />,
+    icon: <SiFirebase/>,
   },
   sockerio: {
     title: "Socket.io",
     bg: "black",
     fg: "white",
-    icon: <SiSocketdotio />,
+    icon: <SiSocketdotio/>,
   },
   js: {
     title: "JavaScript",
-    bg: "black",
+    bg: "text-[color:var(--color-background)]",
     fg: "white",
-    icon: <SiJavascript />,
+    icon: <SiJavascript/>,
   },
   ts: {
     title: "TypeScript",
     bg: "black",
     fg: "white",
-    icon: <SiTypescript />,
+    icon: <SiTypescript/>,
   },
   vue: {
     title: "Vue.js",
     bg: "black",
     fg: "white",
-    icon: <SiVuedotjs />,
+    icon: <SiVuedotjs/>,
   },
   react: {
     title: "React.js",
@@ -197,13 +187,13 @@ const PROJECT_SKILLS = {
     title: "Framer Motion",
     bg: "black",
     fg: "white",
-    icon: <TbBrandFramerMotion />,
+    icon: <TbBrandFramerMotion/>,
   },
   supabase: {
     title: "Supabase",
-    bg: "black",
+    bg: "background",
     fg: "white",
-    icon: <SiSupabase />,
+    icon: <SiSupabase/>,
   },
 };
 
@@ -235,12 +225,12 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-2xl text-center">Lorem ipsum dolor sit amet.</TypographyP>
-          <TypographyP className="font-mono ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Project One</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Section One</TypographyH3>
+          <TypographyP className="font-body ">Project One where I use number One to create Placeholder</TypographyP>
+          {/* <TypographyH3 className="my-4 mt-8">Section One</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/problems.png`]} />
+          <SlideShow images={[`${BASE_PATH}/codingducks/problems.png`]} /> */}
           {/* <TypographyH3 className="my-4 mt-8">Section Two</TypographyH3> */}
           {/* <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur.</p> */}
           {/* <SlideShow images={[`${BASE_PATH}/codingducks/ducklets.png`]} /> */}
@@ -253,7 +243,7 @@ const projects: Project[] = [
     category: "Placeholder",
     title: "Project Two",
     src: ``,
-    screenshots: ["1.png", "2.png", "3.png"],
+    screenshots: [""],
     live: "",
     github: "",
     skills: {
@@ -263,13 +253,14 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">Lorem ipsum dolor sit amet consectetur adipisicing elit.</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Project Two</TypographyP>
           <ProjectsLinks live={this.live} />
-          <p className="font-mono mb-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
+          <TypographyP className="font-body ">Project Two where I use number Two to create Placeholder</TypographyP>
+          {/* <p className="font-mono mb-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}
+          {/* <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
           <TypographyH3 className="my-4">Lorem Ipsum</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet.</p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/stores.png`]} />
+          <SlideShow images={[`${BASE_PATH}/couponluxury/stores.png`]} /> */}
         </div>
       );
     },
@@ -288,13 +279,9 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">Lorem ipsum dolor sit amet consectetur adipisicing elit.</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Project Three</TypographyP>
           <ProjectsLinks live={this.live} />
-          <p className="font-mono mb-2 mt-8">Lorem ipsum dolor sit amet.</p>
-          <SlideShow images={[`${BASE_PATH}/the-booking-desk/landing.png`]} />
-          <TypographyH3 className="my-4 mt-8">Lorem Ipsum</TypographyH3>
-          <p className="font-mono mb-2">Lorem ipsum dolor sit amet.</p>
-          <SlideShow images={[`${BASE_PATH}/the-booking-desk/blogs.png`]} />
+          <TypographyP className="font-body ">Project Three where I use number Three to create Placeholder</TypographyP>
         </div>
       );
     },
@@ -314,11 +301,12 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">Lorem ipsum dolor sit amet consectetur.</TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Lorem Ipsum</TypographyH3>
+          <TypographyP className="font-heading text-2xl text-center">Project Four</TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github}/>
+          <TypographyP className="font-body">Project Four where I use number Four to create Placeholder</TypographyP>
+          {/* <TypographyH3 className="my-4 mt-8">Lorem Ipsum</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <SlideShow images={[`${BASE_PATH}/portfolio/landing.png`]} />
+          <SlideShow images={[`${BASE_PATH}/portfolio/landing.png`]} /> */}
         </div>
       );
     },
@@ -338,9 +326,10 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">Lorem ipsum dolor sit amet consectetur adipisicing elit.</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Project Five</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[`${BASE_PATH}/ghostchat/1.png`]} />
+          <TypographyP className="font-body">Project Five where I use number Five to create Placeholder</TypographyP>
+          {/* <SlideShow images={[`${BASE_PATH}/ghostchat/1.png`]} /> */}
         </div>
       );
     },

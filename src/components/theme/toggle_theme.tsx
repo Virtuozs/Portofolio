@@ -14,7 +14,6 @@ export default function ToggleTheme({ className }: { className?: string }) {
 
   const goLight = () => {
     setCounter((prev) => ({ ...prev, light: prev.light + 1 }));
-    console.log("light");
     setTheme("light");
   };
 
@@ -29,15 +28,14 @@ export default function ToggleTheme({ className }: { className?: string }) {
       className:
         "top-0 right-0 flex fixed md:max-w-[420px] md:top-16 md:right-4",
     });
-    console.log("dark");
     setTheme("dark");
   };
 
   const trigger = (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
-      className={mergeClass("border bg-transparent", className)}
+      className={mergeClass("bg-transparent", className)}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0 pointer-events-none" />
       <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100 pointer-events-none" />
@@ -47,9 +45,9 @@ export default function ToggleTheme({ className }: { className?: string }) {
 
   return theme === "light" ? (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
-      className={mergeClass("border bg-transparent", className)}
+      className={mergeClass("bg-transparent", className)}
       onClick={goDark}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0 pointer-events-none" />

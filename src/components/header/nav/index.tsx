@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { links } from "../config";
 import { height } from "../animation";
 import Body from "./body/body";
-// import Image from "./image/image";
 
 interface NavProps {
   setIsActive: (isActive: boolean) => void;
@@ -38,10 +37,6 @@ const Nav: React.FC<NavProps> = ({ setIsActive }) => {
           />
           {/* <Footer /> */}
         </div>
-        {/* <Image
-          src={links[selectedLink.index].thumbnail}
-          isActive={selectedLink.isActive}
-        /> */}
       </div>
     </motion.div>
   );

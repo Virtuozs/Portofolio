@@ -14,8 +14,7 @@ const ProjectsSection = () => {
           className={mergeClass(
             "bg-clip-text text-transparent text-4xl text-center md:text-7xl",
             "bg-gradient-to-b",
-            "from-foreground to-background",
-            "mb-10"
+            "from-text-base to-background",
           )}
         >
           Projects
@@ -40,7 +39,7 @@ const Modall = ({ project }: { project: Project }) => {
             style={{ aspectRatio: "3/2" }}
           >
             <img
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
+              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all text-background"
               src={project.src}
               alt={project.title}
               width={300}
@@ -48,8 +47,8 @@ const Modall = ({ project }: { project: Project }) => {
             />
             <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none">
               <div className="flex flex-col h-full items-start justify-end p-4">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs rounded-lg w-fit p-1">
+                <div className="text-lg text-left text-primary/60">{project.title}</div>
+                <div className="text-xs rounded-lg w-fit p-1 text-accent/40">
                   {project.category}
                 </div>
               </div>
@@ -72,12 +71,12 @@ export default ProjectsSection;
 const ProjectContents = ({ project }: { project: Project }) => {
   return (
     <>
-      <h4 className="text-lg md:text-2xl text-foreground  font-bold text-center mb-8">
+      <h4 className="text-lg md:text-2xl text-background  font-bold text-center mb-8">
         {project.title}
       </h4>
       <div className="flex flex-col md:flex-row md:justify-evenly max-w-screen overflow-hidden md:overflow-visible">
         <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
-          <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
+          <p className="text-sm mt-1 text-background">
             Frontend
           </p>
           {project.skills.frontend?.length > 0 && (
@@ -86,7 +85,7 @@ const ProjectContents = ({ project }: { project: Project }) => {
         </div>
         {project.skills.backend?.length > 0 && (
           <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
-            <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
+            <p className="text-sm mt-1 text-background">
               Backend
             </p>
             <FloatingDock items={project.skills.backend} />

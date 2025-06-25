@@ -31,12 +31,11 @@ export default function Body({
     setCurrentHref(pathname + hash);
 
     if (hash) {
-      // Ensure element exists and scroll to it
       const target = document.querySelector(hash);
       if (target) {
         setTimeout(() => {
           target.scrollIntoView({ behavior: "smooth" });
-        }, 0); // allow DOM to render
+        }, 0);
       }
     }
   }, [location]);
@@ -64,14 +63,14 @@ export default function Body({
           <Link
             key={`l_${index}`}
             to={href}
-            className="cursor-pointer uppercase no-underline text-[hsl(var(--foreground))] rounded-lg"
+            className="cursor-pointer uppercase no-underline text-[hsl(var(--secondary))] rounded-lg"
             onClick={() => setIsActive(false)}
             onMouseOver={() => setSelectedLink({ isActive: true, index })}
             onMouseLeave={() => setSelectedLink({ isActive: false, index })}
           >
             <motion.p
               className={`text-[32px] pr-[30px] pt-[10px] font-[350] lg:text-[5vw] lg:pr-[2vw] cursor-can-hover ${
-                currentHref !== href ? "text-muted-foreground" : "underline"
+                currentHref !== href ? "text-accent/60" : "underline text-primary"
               }`}
               variants={blur}
               animate={

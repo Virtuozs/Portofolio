@@ -1,55 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 @import "tailwindcss";
 
+
 :root {
-  --background: hsl(225, 46%, 96%);  
-  --foreground: hsl(230, 27%, 31%); 
-
-  /* Accent & Highlights */
-  --primary: hsl(199, 100%, 70%);   
-  --secondary: hsl(289, 39%, 73%);    
-  --tertiary: hsl(198, 52%, 81%);   
-
-  /* UI Elements */
-  --border: hsl(222, 30%, 26%);
-  --muted: hsl(355, 52%, 94%);            
-  --card: hsl(225, 46%, 98%);             
-  --input: hsl(225, 46%, 92%);            
-  --ring: hsl(199, 100%, 78%);            
-
-  /* Text Variants */
-  --text-base: var(--foreground);
-  --text-muted: hsl(230, 16%, 60%);
-  --text-inverted: hsl(0, 0%, 98%);
-
-  /* Button Variants */
-  --button-primary: var(--primary);
-  --button-primary-hover: hsl(199, 100%, 60%);
-  --button-secondary: var(--secondary);
-  --button-secondary-hover: hsl(289, 39%, 63%);
+    --text: hsl(231 26% 5%);
+    --background: hsl(231 100% 95%);
+    --primary: hsl(230 62% 53%);
+    --secondary: hsl(230 78% 73%);
+    --accent: hsl(230 95% 61%);
 }
 
 .dark {
-  --background: hsl(215, 44%, 12%);
-  --foreground: hsl(200, 50%, 90%);
-
-  --primary: hsl(195, 100%, 72%);
-  --secondary: hsl(289, 45%, 82%);
-  --tertiary: hsl(198, 52%, 81%);
-
-  --border: hsl(222, 30%, 26%);
-  --muted: hsl(215, 20%, 20%);
-  --card: hsl(215, 35%, 15%);
-  --input: hsl(215, 40%, 18%);
-  --ring: hsl(199, 100%, 78%);
-
-  --text-base: hsl(200, 50%, 90%);
-  --text-muted: hsl(220, 15%, 60%);
-  --text-inverted: hsl(225, 46%, 96%);
-
-  --button-primary: var(--primary);
-  --button-primary-hover: hsl(195, 100%, 62%);
-  --button-secondary: var(--secondary);
-  --button-secondary-hover: hsl(289, 39%, 63%);
+    --text: hsl(231 28% 95%);
+    --background: hsl(240 45% 2%);
+    --primary: hsl(230 62% 47%);
+    --secondary: hsl(230 78% 27%);
+    --accent: hsl(230 95% 39%);
 }
 
 .custom-popover {
@@ -68,37 +35,20 @@
   }
 }
 
-/* 2. Create Tailwind theme variables using @theme inline */
 @theme inline {
+  --font-body: "Nokora", serif;
+  --font-heading: "Archivo Black", sans-serif;
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
+  --color-text-base: var(--text);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-tertiary: var(--tertiary);
-
-  --color-border: var(--border);
-  --color-muted: var(--muted);
-  --color-card: var(--card);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  --color-text-base: var(--text-base);
-  --color-text-muted: var(--text-muted);
-  --color-text-inverted: var(--text-inverted);
-
-  --color-button-primary: var(--button-primary);
-  --color-button-primary-hover: var(--button-primary-hover);
-  --color-button-secondary: var(--button-secondary);
-  --color-button-secondary-hover: var(--button-secondary-hover);
-
-  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-border: var(--primary);
 }
 
-/* 3. Apply base styles using Tailwind utilities */
 @layer base {
   body {
-    @apply bg-background text-foreground min-h-screen transition-colors duration-300;
+    @apply bg-background text-text-base min-h-screen transition-colors duration-300;
   }
   *, *::before, *::after {
     @apply border-border;

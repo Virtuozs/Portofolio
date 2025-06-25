@@ -12,14 +12,14 @@ const SkillsSection = () => {
               className={mergeClass(
                 "bg-clip-text text-transparent text-4xl text-center md:text-7xl",
                 "bg-gradient-to-b",
-                "from-foreground to-background",
+                "from-text-base to-background",
               )}
             >
               SKILLS
             </h2>
           </BoxReveal>
         </Link>
-        <p className="mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-primary">
+        <p className="mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-text-base">
           (hint: press a key)
         </p>
       </div>

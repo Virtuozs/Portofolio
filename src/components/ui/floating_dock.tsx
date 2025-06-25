@@ -126,7 +126,7 @@ const FloatingDockDesktop = ({
         className={mergeClass(
           // "hidden md:flex",
           "flex gap-2 md:gap-4",
-          "mx-auto h-16 items-end rounded-2xl bg-accent-foreground px-4 pb-3",
+          "mx-auto h-16 items-end rounded-2xl bg-accent px-4 pb-3",
           // "blur-sm brightness-50",
           className
         )}
@@ -148,7 +148,7 @@ const FloatingDockDesktop = ({
           >
             <motion.div
               className={mergeClass(
-                "w-5 h-5 border-2 left-[50%] top-0 border-accent rounded-full",
+                "w-5 h-5 border-2 left-[50%] top-0 border-primary rounded-full",
                 "translate-x-[-50px]"
               )}
               initial={{ opacity: 0, x: -50 }}
@@ -218,7 +218,7 @@ function IconContainer({
       style={{ width, height }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="aspect-square rounded-full bg-accent flex items-center justify-center relative"
+      className="aspect-square rounded-full bg-background flex items-center justify-center relative"
     >
       <AnimatePresence>
         {hovered && (
@@ -226,7 +226,7 @@ function IconContainer({
             initial={{ opacity: 0, y: 10, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 2, x: "-50%" }}
-            className="px-2 py-0.5 whitespace-pre rounded-md bg-accent dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+            className="px-2 py-0.5 whitespace-pre rounded-md bg-background text-text-base absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xl"
           >
             {title}
           </motion.div>
@@ -234,7 +234,7 @@ function IconContainer({
       </AnimatePresence>
       <motion.div
         style={{ width: widthIcon, height: heightIcon }}
-        className="flex items-center justify-center"
+        className="flex items-center justify-center text-primary"
       >
         {icon}
       </motion.div>

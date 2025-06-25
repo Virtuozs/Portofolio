@@ -33,8 +33,8 @@ const HeroSection = () => {
                 <BlurIn delay={0.7}>
                   <p
                     className={mergeClass(
-                      "md:self-start mt-4 font-thin text-md text-base ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "md:self-start mt-4 font-display text-md text-base ml-3",
+                      "cursor-default font-display font-body sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
                     Hi, I am
@@ -47,7 +47,7 @@ const HeroSection = () => {
                       <h1
                         className={mergeClass(
                           "font-thin text-6xl text-transparent ml-1 text-left",
-                          "cursor-default text-edge-outline font-display sm:text-2xl md:text-7xl "
+                          "cursor-default text-edge-outline font-extrabold font-heading sm:text-2xl md:text-6xl "
                         )}
                       >
                         {config.author.split(" ")[0]}
@@ -61,8 +61,8 @@ const HeroSection = () => {
                 <BlurIn delay={1.2}>
                   <p
                     className={mergeClass(
-                      "md:self-start md:mt-4 font-thin text-md text-base ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "md:self-start md:mt-4 font-display text-md text-base ml-3",
+                      "cursor-default font-display font-body sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
                     A Software Engineer
@@ -78,7 +78,7 @@ const HeroSection = () => {
                   className="flex-1"
                 >
                   <BoxReveal delay={2} width="100%" >
-                    <Button className="flex items-center bg-foreground text-primary gap-2 w-full">
+                    <Button className="flex items-center bg-primary text-background  gap-2 w-full">
                       <File size={24} />
                       <p>Resume</p>
                     </Button>
@@ -90,7 +90,7 @@ const HeroSection = () => {
                       <Link to={"#contact"}>
                         <Button
                           variant={"outline"}
-                          className="block w-full overflow-hidden"
+                          className="block w-full overflow-hidden text-primary"
                         >
                           Hire Me
                         </Button>
@@ -105,7 +105,7 @@ const HeroSection = () => {
                     target="_blank"
                   >
                     <Button variant={"outline"}>
-                      <SiGithub size={24} />
+                      <SiGithub size={24} className="text-[color:var(--color-primary)]"/>
                     </Button>
                   </Link>
                   <Link
@@ -113,7 +113,7 @@ const HeroSection = () => {
                     target="_blank"
                   >
                     <Button variant={"outline"}>
-                      <SiLinkedin size={24} />
+                      <SiLinkedin size={24} className="text-[color:var(--color-primary)]"/>
                     </Button>
                   </Link>
                 </div>
