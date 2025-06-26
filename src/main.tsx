@@ -11,6 +11,7 @@ import ElasticCursor from "./components/ui/elastic_cursor.tsx";
 import { SmoothScroll } from "./components/smooth_scrolling.tsx";
 import Header from "./components/header/header.tsx";
 import { TooltipProvider } from "./components/ui/tooltip.tsx";
+import Footer from "./components/footer/footer.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")!).render(
             <TooltipProvider>
               <Header/>
               <App />
+              <Footer/>
             </TooltipProvider>
           </SmoothScroll>
         </Preloader>

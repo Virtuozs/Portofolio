@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const ScrollDownIcon = () => {
@@ -22,7 +22,7 @@ const ScrollDownIcon = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          className="w-fit min-h-[50px] p-1 border-2 rounded-full border-gray-500 dark:border-white "
+          className="w-fit min-h-[50px] p-1 border-2 rounded-full border-primary"
         >
           <motion.div
             initial={{ y: 0 }}
@@ -33,7 +33,7 @@ const ScrollDownIcon = () => {
               repeat: Infinity,
               repeatDelay: 1,
             }}
-            className="w-3 h-3 rounded-full bg-gray-500 dark:bg-white"
+            className="w-3 h-3 rounded-full bg-accent"
           />
         </motion.div>
       )}

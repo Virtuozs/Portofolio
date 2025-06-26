@@ -20,7 +20,8 @@ const Header = ({ loader }: HeaderProps) => {
     <motion.header
       className={mergeClass(
         styles.header,
-        "z-[9] fixed w-full box-border px-4 sm:px-5 py-[15px] sm:py-[20px] backdrop-blur-[12px] transition-colors delay-100 duration-500 ease-in"
+        "z-[9] fixed top-0 w-full px-3 sm:px-6 py-3 sm:py-4 backdrop-blur-md"
+        // "z-[9] fixed w-full box-border px-4 sm:px-5 py-[15px] sm:py-[20px] backdrop-blur-[12px] transition-colors delay-100 duration-500 ease-in"
       )}
       style={{
         background: isActive ? "hsl(var(--background) / .6)" : "transparent",

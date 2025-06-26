@@ -4,7 +4,6 @@
  * Mobile navbar is better positioned at bottom right.
  **/
 
-// import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -41,7 +40,7 @@ const FloatingDockMobile = ({
   items: { title: string; icon: React.ReactNode }[];
   className?: string;
 }) => {
-  const [open, setOpen] = useState(false);
+  const [open] = useState(false);
   return (
     <div className={mergeClass("relative block md:hidden", className)}>
       <AnimatePresence>
@@ -126,7 +125,7 @@ const FloatingDockDesktop = ({
         className={mergeClass(
           // "hidden md:flex",
           "flex gap-2 md:gap-4",
-          "mx-auto h-16 items-end rounded-2xl bg-accent px-4 pb-3",
+          "mx-auto h-16 items-end rounded-2xl bg-accent/20 px-4 pb-3",
           // "blur-sm brightness-50",
           className
         )}
@@ -143,7 +142,7 @@ const FloatingDockDesktop = ({
           <div
             className={mergeClass(
               "relative w-full h-full flex items-center justify-center",
-              "backdrop-blur-md"
+              // "backdrop-blur-md"
             )}
           >
             <motion.div
@@ -226,7 +225,7 @@ function IconContainer({
             initial={{ opacity: 0, y: 10, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 2, x: "-50%" }}
-            className="px-2 py-0.5 whitespace-pre rounded-md bg-background text-text-base absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xl"
+            className="px-2 py-1 whitespace-pre rounded-md bg-background text-text-base absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xl"
           >
             {title}
           </motion.div>

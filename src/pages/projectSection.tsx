@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from "../components/ui/animated_modal";
 import { SmoothScroll } from "../components/smooth_scrolling";
 import { mergeClass } from "../libs/utils";
-import { FloatingDock } from "../components/ui/floating_dock";
+// import { FloatingDock } from "../components/ui/floating_dock";
 
 const ProjectsSection = () => {
   return (
@@ -45,17 +45,17 @@ const Modall = ({ project }: { project: Project }) => {
               width={300}
               height={300}
             />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none">
+            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-primary via-primary/80 to-transparent pointer-events-none">
               <div className="flex flex-col h-full items-start justify-end p-4">
-                <div className="text-lg text-left text-primary/60">{project.title}</div>
-                <div className="text-xs rounded-lg w-fit p-1 text-accent/40">
+                <div className="text-lg text-left font-heading text-white">{project.title}</div>
+                <div className="text-xs rounded-lg font-body bg-secondary w-fit p-1.5 text-white">
                   {project.category}
                 </div>
               </div>
             </div>
           </div>
         </ModalTrigger>
-        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
+        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto" thumbnailUrl={project.src} Skills={project.skills.frontend}>
           <SmoothScroll isInsideModal={true}>
             <ModalContent>
               <ProjectContents project={project} />
@@ -68,30 +68,12 @@ const Modall = ({ project }: { project: Project }) => {
 };
 export default ProjectsSection;
 
-const ProjectContents = ({ project }: { project: Project }) => {
+export const ProjectContents = ({ project }: { project: Project }) => {
   return (
     <>
-      <h4 className="text-lg md:text-2xl text-background  font-bold text-center mb-8">
+      <h4 className="text-lg md:text-2xl text-background font-bold text-center">
         {project.title}
       </h4>
-      <div className="flex flex-col md:flex-row md:justify-evenly max-w-screen overflow-hidden md:overflow-visible">
-        <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
-          <p className="text-sm mt-1 text-background">
-            Frontend
-          </p>
-          {project.skills.frontend?.length > 0 && (
-            <FloatingDock items={project.skills.frontend} />
-          )}
-        </div>
-        {project.skills.backend?.length > 0 && (
-          <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
-            <p className="text-sm mt-1 text-background">
-              Backend
-            </p>
-            <FloatingDock items={project.skills.backend} />
-          </div>
-        )}
-      </div>
       {project.content}
     </>
   );

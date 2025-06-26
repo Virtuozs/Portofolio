@@ -9,6 +9,8 @@ import React, {
 } from "react";
 import { mergeClass } from "../../libs/utils";
 import { ScrollArea } from "./scroll_area";
+import { FloatingDock } from "./floating_dock";
+import type { Skill } from "../../data/projects";
 
 interface ModalContextType {
     open: boolean;
@@ -60,93 +62,240 @@ export const ModalTrigger = ({
     );
 };
 
+// export const ModalBody = ({
+//     children,
+//     className,
+// }: {
+//     children: ReactNode;
+//     className?: string;
+// }) => {
+//     const { open } = useModal();
+
+//     useEffect(() => {
+//         if (typeof window !== "undefined") {
+//         document.addEventListener("keydown", (e) => {
+//             if (e.key === "Escape") setOpen(false);
+//         });
+//         }
+//     }, []);
+
+//     useEffect(() => {
+//         if (open) {
+//         document.body.style.overflow = "hidden";
+//         } else {
+//         document.body.style.overflow = "auto";
+//         }
+//     }, [open]);
+
+//     const modalRef = useRef<HTMLDivElement>(null);
+//     const { setOpen } = useModal();
+//     useOutsideClick(modalRef, () => setOpen(false));
+
+//     return (
+//         <AnimatePresence>
+//             {open && (
+//                 <motion.div
+//                 initial={{
+//                     opacity: 0,
+//                 }}
+//                 animate={{
+//                     opacity: 1,
+//                     backdropFilter: "blur(10px)",
+//                 }}
+//                 exit={{
+//                     opacity: 0,
+//                     backdropFilter: "blur(0px)",
+//                 }}
+//                 className="modall fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
+//                 >
+//                 <Overlay />
+
+//                 <motion.div
+//                     ref={modalRef}
+//                     className={mergeClass(
+//                         "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-background border border-transparent md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+//                         className
+//                     )}
+//                     initial={{
+//                         opacity: 0,
+//                         scale: 0.5,
+//                         rotateX: 40,
+//                         y: 40,
+//                     }}
+//                     animate={{
+//                         opacity: 0.9,
+//                         scale: 1,
+//                         rotateX: 0,
+//                         y: 0,
+//                     }}
+//                     exit={{
+//                         opacity: 0,
+//                         scale: 0.8,
+//                         rotateX: 10,
+//                     }}
+//                     transition={{
+//                         type: "spring",
+//                         stiffness: 260,
+//                         damping: 15,
+//                     }}
+//                 >
+//                     <CloseIcon />
+//                     <ScrollArea className="h-[80dvh] w-full rounded-md border">
+//                         {children}
+//                     </ScrollArea>
+//                 </motion.div>
+//             </motion.div>
+//         )}
+//     </AnimatePresence>
+// );
+// };
+
+// export const ModalBody = ({
+//   children,
+//   className,
+//   thumbnailUrl,
+// }: {
+//   children: ReactNode;
+//   className?: string;
+//   thumbnailUrl: string;
+// }) => {
+//   const { open, setOpen } = useModal();
+//   const modalRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     if (typeof window !== "undefined") {
+//       const handler = (e: KeyboardEvent) => {
+//         if (e.key === "Escape") setOpen(false);
+//       };
+//       document.addEventListener("keydown", handler);
+//       return () => document.removeEventListener("keydown", handler);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     document.body.style.overflow = open ? "hidden" : "auto";
+//   }, [open]);
+
+//   useOutsideClick(modalRef, () => setOpen(false));
+
+//   return (
+//     <AnimatePresence>
+//       {open && (
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1, backdropFilter: "blur(10px)" }}
+//           exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+//           className="fixed inset-0 z-50 flex h-full w-full items-center justify-center [perspective:800px] [transform-style:preserve-3d]"
+//         >
+//           {/* <Overlay /> */}
+
+//           <motion.div
+//             ref={modalRef}
+//             className={mergeClass(
+//               "md:rounded-2xl relative z-50 flex h-[90%] w-full max-w-[90%] md:max-w-[40%] flex-col overflow-hidden bg-background border",
+//               className
+//             )}
+//             initial={{ opacity: 0, scale: 0.5, rotateX: 40, y: 40 }}
+//             animate={{ opacity: 0.95, scale: 1, rotateX: 0, y: 0 }}
+//             exit={{ opacity: 0, scale: 0.8, rotateX: 10 }}
+//             transition={{ type: "spring", stiffness: 260, damping: 15 }}
+//           >
+//             <CloseIcon />
+
+//             {/* Thumbnail with skill overlay */}
+//             <div className="relative h-[20%] min-h-[140px] w-full">
+//               <img
+//                 src={thumbnailUrl}
+//                 alt="Project thumbnail"
+//                 className="h-full w-full object-cover"
+//               />
+//             </div>
+
+//             {/* Scrollable content area */}
+//             <ScrollArea className="flex-1 w-full p-4">{children}</ScrollArea>
+//           </motion.div>
+//         </motion.div>
+//       )}
+//     </AnimatePresence>
+//   );
+// };
+
+
 export const ModalBody = ({
-    children,
-    className,
+  children,
+  className,
+  thumbnailUrl,
+  Skills = [],
 }: {
-    children: ReactNode;
-    className?: string;
+  children: ReactNode;
+  className?: string;
+  thumbnailUrl: string;
+  Skills?: Skill[];
 }) => {
-    const { open } = useModal();
+  const { open, setOpen } = useModal();
+  const modalRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") setOpen(false);
-        });
-        }
-    }, []);
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
 
-    useEffect(() => {
-        if (open) {
-        document.body.style.overflow = "hidden";
-        } else {
-        document.body.style.overflow = "auto";
-        }
-    }, [open]);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
-    const modalRef = useRef<HTMLDivElement>(null);
-    const { setOpen } = useModal();
-    useOutsideClick(modalRef, () => setOpen(false));
+  useOutsideClick(modalRef, () => setOpen(false));
 
-    return (
-        <AnimatePresence>
-            {open && (
-                <motion.div
-                initial={{
-                    opacity: 0,
-                }}
-                animate={{
-                    opacity: 1,
-                    backdropFilter: "blur(10px)",
-                }}
-                exit={{
-                    opacity: 0,
-                    backdropFilter: "blur(0px)",
-                }}
-                className="modall fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
-                >
-                <Overlay />
-
-                <motion.div
-                    ref={modalRef}
-                    className={mergeClass(
-                    "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-background border border-transparent md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
-                    className
-                    )}
-                    initial={{
-                    opacity: 0,
-                    scale: 0.5,
-                    rotateX: 40,
-                    y: 40,
-                    }}
-                    animate={{
-                    opacity: 0.9,
-                    scale: 1,
-                    rotateX: 0,
-                    y: 0,
-                    }}
-                    exit={{
-                    opacity: 0,
-                    scale: 0.8,
-                    rotateX: 10,
-                    }}
-                    transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 15,
-                    }}
-                >
-                    <CloseIcon />
-                    <ScrollArea className="h-[80dvh] w-full rounded-md border">
-                        {children}
-                    </ScrollArea>
-                </motion.div>
-                </motion.div>
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, backdropFilter: "blur(10px)" }}
+          exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+          className="fixed inset-0 z-50 flex h-full w-full items-center justify-center [perspective:800px] [transform-style:preserve-3d]"
+        >
+          <Overlay />
+          <motion.div
+            ref={modalRef}
+            className={mergeClass(
+              "md:rounded-2xl relative z-50 flex h-[90%] w-full max-w-[90%] md:max-w-[40%] flex-col overflow-hidden bg-background border",
+              className
             )}
-        </AnimatePresence>
-    );
+            initial={{ opacity: 0, scale: 0.5, rotateX: 40, y: 40 }}
+            animate={{ opacity: 0.95, scale: 1, rotateX: 0, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, rotateX: 10 }}
+            transition={{ type: "spring", stiffness: 260, damping: 15 }}
+          >
+            <CloseIcon />
+
+            <div className="relative h-[40%] min-h-[200px] w-full">
+              <img
+                src={thumbnailUrl}
+                alt="Project thumbnail"
+                className="h-full w-full object-cover"
+              />
+
+              <div className="absolute left-5 bottom-5 space-y-1">
+                {Skills.length > 0 && (
+                  <FloatingDock items={Skills} />
+                )}
+              </div>
+            </div>
+
+            {/* Scrollable area */}
+            <ScrollArea className="flex-1 w-full">{children}</ScrollArea>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
+
+
 
 export const ModalContent = ({
     children,
@@ -221,7 +370,7 @@ const CloseIcon = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="bg-background h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200"
+            className="text-background h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200"
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="" />
             <path d="M18 6l-12 12" />

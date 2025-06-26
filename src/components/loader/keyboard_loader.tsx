@@ -17,13 +17,13 @@ export default function KeyboardLoader() {
     const activeKeys = Math.floor((loadingPercent / 100) * letters.length);
 
     return(
-        <div className="h-screen flex flex-col justify-center items-center bg-transparent text-white font-mono">
+        <motion.div className="h-screen flex flex-col justify-center items-center bg-transparent text-white font-mono">
             <div className="grid grid-cols-3 gap-4 mb-6">
                 {letters.map((char, index) => (
                 <motion.div
                     key={index}
                     // className="w-16 h-16 rounded-lg bg-transparent text-black text-2xl flex items-center justify-center shadow-2xl border-1"
-                    className="w-16 h-16 rounded-lg bg-gray-50 text-gray-900 text-2xl font-bold
+                    className="w-16 h-16 rounded-lg bg-background text-text-base text-2xl font-bold
                     flex items-center justify-center shadow-[0_4px_8px_rgba(0,0,0,0.3),0_8px_20px_rgba(0,0,0,0.25)]
                     border border-gray-300"
                     variants={keyVariants}
@@ -34,6 +34,6 @@ export default function KeyboardLoader() {
                 </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -211,11 +211,11 @@ export type Project = {
 
 const projects: Project[] = [
   {
-    id: "Project One",
+    id: "Portofolio",
     category: "Placeholder",
-    title: "Project One",
-    src: "",
-    screenshots: ["landing.png"],
+    title: "Portofolio",
+    src: "/project_assets/Portofolio.png",
+    screenshots: ["/project_assets/Portofolio.png"],
     skills: {
       frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra, PROJECT_SKILLS.reactQuery, PROJECT_SKILLS.firebase],
       backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.prisma, PROJECT_SKILLS.python, PROJECT_SKILLS.postgres, PROJECT_SKILLS.sockerio],
@@ -225,7 +225,7 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-heading text-2xl text-center">Project One</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Portofolio</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <TypographyP className="font-body ">Project One where I use number One to create Placeholder</TypographyP>
           {/* <TypographyH3 className="my-4 mt-8">Section One</TypographyH3>
@@ -239,10 +239,10 @@ const projects: Project[] = [
     },
   },
   {
-    id: "Project Two",
+    id: "Pokedex",
     category: "Placeholder",
-    title: "Project Two",
-    src: ``,
+    title: "Pokedex",
+    src: "/project_assets/Pokedex.png",
     screenshots: [""],
     live: "",
     github: "",
@@ -253,7 +253,7 @@ const projects: Project[] = [
     get content() {
       return (
         <div>
-          <TypographyP className="font-heading text-2xl text-center">Project Two</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Pokedex</TypographyP>
           <ProjectsLinks live={this.live} />
           <TypographyP className="font-body ">Project Two where I use number Two to create Placeholder</TypographyP>
           {/* <p className="font-mono mb-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}

@@ -17,24 +17,24 @@ const HeroSection = () => {
   const { isLoading } = usePreloader();
 
   return (
-    <section id="hero" className={mergeClass("relative w-full h-screen")}>
+    <section id="hero" className={mergeClass("relative w-full min-h-screen flex items-center justify-center")}>
       <div className="grid md:grid-cols-2">
         <div
           className={mergeClass(
-            "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
-            "col-span-1",
-            "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "pt-28 sm:pt-0 sm:pb-32 md:p-24 lg:p-40 xl:p-48"
+            "min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] z-[2]",
+            "col-span-2 md:col-span-1",
+            "flex flex-col justify-start sm:justify-center items-center md:items-start",
+            "pt-20 px-6 sm:px-10 md:px-24 lg:px-40 xl:px-48"
           )}
         >
           {!isLoading && (
             <>
-              <div className="">
+              <div className="w-full text-center md:text-left">
                 <BlurIn delay={0.7}>
                   <p
                     className={mergeClass(
                       "md:self-start mt-4 font-display text-md text-base ml-3",
-                      "cursor-default font-display font-body sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "cursor-default font-display font-body sm:text-base md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
                     Hi, I am
@@ -46,7 +46,7 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={mergeClass(
-                          "font-thin text-6xl text-transparent ml-1 text-left",
+                          "font-thin text-4xl text-transparent ml-1 text-left",
                           "cursor-default text-edge-outline font-extrabold font-heading sm:text-2xl md:text-6xl "
                         )}
                       >
@@ -72,7 +72,7 @@ const HeroSection = () => {
               <div className="mt-8 md:ml-2 flex flex-col gap-3">
                 <Link
                   to={
-                    "https://drive.google.com/file/d/1O97WCk2DrO9x6SHOqf7LvRbmHkMgGIb4/view?usp=sharing"
+                    ""
                   }
                   target="_blank"
                   className="flex-1"
