@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Application, type SPEObject, type SplineEvent } from "@splinetool/runtime";
 import gsap from "gsap";

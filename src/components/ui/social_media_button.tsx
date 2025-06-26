@@ -1,5 +1,5 @@
 import { useInView } from "framer-motion";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Button } from "../ui/button";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { config } from "../../data/config";
