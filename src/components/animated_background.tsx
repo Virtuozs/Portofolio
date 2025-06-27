@@ -94,6 +94,7 @@ const AnimatedBackground = () => {
     if (!skillsEl) return;
 
     const rect = skillsEl.getBoundingClientRect();
+    
     const inView =
       rect.top < window.innerHeight &&
       rect.bottom > 0;
@@ -121,7 +122,6 @@ const AnimatedBackground = () => {
 
   // handle keyboard heading and desc visibility
   useEffect(() => {
-
     if (!splineApp) return;
     const textDesktopDark = splineApp.findObjectByName("text-desktop-dark");
     const textDesktopLight = splineApp.findObjectByName("text-desktop");
@@ -142,6 +142,7 @@ const AnimatedBackground = () => {
       textMobileLight.visible = false;
       return;
     }
+
     if (theme === "dark" && !isMobile) {
       textDesktopDark.visible = false;
       textDesktopLight.visible = true;
@@ -193,7 +194,6 @@ const AnimatedBackground = () => {
         kbd.rotation,
         {
           y: 0,
-          // x: -Math.PI,
           x: -Math.PI,
           z: 0,
         },
@@ -203,7 +203,6 @@ const AnimatedBackground = () => {
           repeat: -1,
           yoyo: true,
           yoyoEase: true,
-          // ease: "none",
           delay: 2.5,
           immediateRender: false,
           paused: true,

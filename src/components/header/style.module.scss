@@ -13,12 +13,6 @@
     position: relative;
     text-transform: lowercase;
     font-weight: 400;
-
-    a {
-      @apply no-underline text-[hsl(var(--foreground))];
-      // position: absolute;
-      // left: 0;
-    }
   }
 }
 

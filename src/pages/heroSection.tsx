@@ -46,7 +46,7 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={mergeClass(
-                          "font-thin text-4xl text-transparent ml-1 text-left",
+                          "font-thin text-4xl text-transparent ml-1 text-left uppercase",
                           "cursor-default text-edge-outline font-extrabold font-heading sm:text-2xl md:text-6xl "
                         )}
                       >
@@ -72,7 +72,7 @@ const HeroSection = () => {
               <div className="mt-8 md:ml-2 flex flex-col gap-3">
                 <Link
                   to={
-                    ""
+                    "https://drive.google.com/file/d/1XMMpHmbvfqzmg-tAEU93zKKu36tuyVdD/view?usp=sharing"
                   }
                   target="_blank"
                   className="flex-1"
@@ -87,7 +87,11 @@ const HeroSection = () => {
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
-                      <Link to={"#contact"}>
+                      <Link 
+                        to={"mailto:contact@virtuozs.com"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Button
                           variant={"outline"}
                           className="block w-full overflow-hidden text-primary"

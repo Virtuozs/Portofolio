@@ -99,87 +99,87 @@ export function TypographyBlockquote({
     </blockquote>
   );
 }
-export function TypographyTable({
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={mergeClass("my-6 w-full overflow-y-auto", className)}>
-      <table className={mergeClass("w-full")}>
-        <thead>
-          <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
-            <th
-              className={mergeClass(
-                "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              King&apos;s Treasury
-            </th>
-            <th
-              className={mergeClass(
-                "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              People&apos;s happiness
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Empty
-            </td>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Overflowing
-            </td>
-          </tr>
-          <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Modest
-            </td>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Satisfied
-            </td>
-          </tr>
-          <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Full
-            </td>
-            <td
-              className={mergeClass(
-                "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-              )}
-            >
-              Ecstatic
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-}
+// export function TypographyTable({
+//   className,
+// }: {
+//   children: ReactNode;
+//   className?: string;
+// }) {
+//   return (
+//     <div className={mergeClass("my-6 w-full overflow-y-auto", className)}>
+//       <table className={mergeClass("w-full")}>
+//         <thead>
+//           <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
+//             <th
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               King&apos;s Treasury
+//             </th>
+//             <th
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               People&apos;s happiness
+//             </th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Empty
+//             </td>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Overflowing
+//             </td>
+//           </tr>
+//           <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Modest
+//             </td>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Satisfied
+//             </td>
+//           </tr>
+//           <tr className={mergeClass("m-0 border-t p-0 even:bg-muted")}>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Full
+//             </td>
+//             <td
+//               className={mergeClass(
+//                 "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+//               )}
+//             >
+//               Ecstatic
+//             </td>
+//           </tr>
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
 export function TypographyList({
   children,
   className,

@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
@@ -15,185 +14,163 @@ import {
   SiSanity,
   SiShadcnui,
   SiSocketdotio,
-  SiSupabase,
   SiTailwindcss,
   SiThreedotjs,
   SiTypescript,
   SiVuedotjs,
+  SiVite,
+  SiCplusplus,
+  SiCmake,
+  SiTensorflow,
+  SiKeras,
+  SiPandas,
+  SiOpencv,
+  SiNumpy,
+  SiPytorch,
+  SiGo,
+  SiRedis,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import { Link } from "react-router-dom";
-import { Button } from "../components/ui/button";
-import { TypographyH3, TypographyP } from "../components/ui/typography";
-import SlideShow from "../components/slide_show";
-const BASE_PATH = "/projects_assets";
-
-const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
-  return (
-    <div className="flex flex-col md:flex-row items-center justify-start gap-3 my-3 mb-8">
-      <Link className="font-mono underline flex gap-2" rel="noopener" target="_new" to={live}>
-        <Button variant={"default"} size={"sm"}>
-          Visit Website
-          <ArrowUpRight className="ml-3 w-5 h-5" />
-        </Button>
-      </Link>
-      {repo && (
-        <Link className="font-mono underline flex gap-2" rel="noopener" target="_new" to={repo}>
-          <Button variant={"default"} size={"sm"}>
-            Github
-            <ArrowUpRight className="ml-3 w-5 h-5" />
-          </Button>
-        </Link>
-      )}
-    </div>
-  );
-};
+import { TypographyP } from "../components/ui/typography";
+import ProjectsLinks from "../components/ui/project_link";
 
 export type Skill = {
   title: string;
-  bg: string;
-  fg: string;
   icon: ReactNode;
 };
 
 const PROJECT_SKILLS = {
   next: {
     title: "Next.js",
-    bg: "black",
-    fg: "white",
     icon: <RiNextjsFill/>,
+  },
+  pytorch: {
+    title: "Pytorch",
+    icon: <SiPytorch/>
+  },
+  go: {
+    title: "Go",
+    icon: <SiGo/>
+  },
+  redis: {
+    title: "Redis",
+    icon: <SiRedis/>
+  },
+  tensorflow: {
+    title: "Tensorflow",
+    icon: <SiTensorflow/>
+  },
+  numpy: {
+    title: "Numpy",
+    icon: <SiNumpy/>
+  },
+  keras: {
+    title: "Keras",
+    icon: <SiKeras/>
+  },
+  pandas: {
+    title: "Pandas",
+    icon: <SiPandas/>
+  },
+  opencv: {
+    title: "Open CV",
+    icon: <SiOpencv/>
+  },
+  cpp: {
+    title: "C++",
+    icon: <SiCplusplus/>
+  },
+  cmake: {
+    title: "CMake",
+    icon: <SiCmake/>
+  },
+  vite: {
+    title: "Vite",
+    icon: <SiVite/>
   },
   chakra: {
     title: "Chakra UI",
-    bg: "black",
-    fg: "white",
     icon: <SiChakraui/>,
   },
   node: {
     title: "Node.js",
-    bg: "black",
-    fg: "white",
     icon: <RiNodejsFill/>,
   },
   python: {
     title: "Python",
-    bg: "black",
-    fg: "white",
     icon: <SiPython/>,
   },
   prisma: {
     title: "prisma",
-    bg: "black",
-    fg: "white",
     icon: <SiPrisma/>,
   },
   postgres: {
     title: "PostgreSQL",
-    bg: "black",
-    fg: "white",
     icon: <SiPostgresql/>,
   },
   mongo: {
     title: "MongoDB",
-    bg: "black",
-    fg: "white",
     icon: <SiMongodb/>,
   },
   express: {
     title: "Express",
-    bg: "black",
-    fg: "white",
     icon: <SiExpress/>,
   },
   reactQuery: {
     title: "React Query",
-    bg: "black",
-    fg: "white",
     icon: <SiReactquery/>,
   },
   shadcn: {
     title: "ShanCN UI",
-    bg: "black",
-    fg: "white",
     icon: <SiShadcnui/>,
   },
   tailwind: {
     title: "Tailwind",
-    bg: "black",
-    fg: "white",
     icon: <SiTailwindcss/>,
   },
   docker: {
     title: "Docker",
-    bg: "black",
-    fg: "white",
     icon: <SiDocker/>,
   },
   firebase: {
     title: "Firebase",
-    bg: "black",
-    fg: "white",
     icon: <SiFirebase/>,
   },
   sockerio: {
     title: "Socket.io",
-    bg: "black",
-    fg: "white",
     icon: <SiSocketdotio/>,
   },
   js: {
     title: "JavaScript",
-    bg: "text-[color:var(--color-background)]",
-    fg: "white",
     icon: <SiJavascript/>,
   },
   ts: {
     title: "TypeScript",
-    bg: "black",
-    fg: "white",
     icon: <SiTypescript/>,
   },
   vue: {
     title: "Vue.js",
-    bg: "black",
-    fg: "white",
     icon: <SiVuedotjs/>,
   },
   react: {
     title: "React.js",
-    bg: "black",
-    fg: "white",
     icon: <RiReactjsFill />,
   },
   sanity: {
     title: "Sanity",
-    bg: "black",
-    fg: "white",
     icon: <SiSanity />,
   },
   spline: {
     title: "Spline",
-    bg: "black",
-    fg: "white",
     icon: <SiThreedotjs />,
   },
   gsap: {
     title: "GSAP",
-    bg: "black",
-    fg: "white",
     icon: "",
   },
   framerMotion: {
     title: "Framer Motion",
-    bg: "black",
-    fg: "white",
     icon: <TbBrandFramerMotion/>,
-  },
-  supabase: {
-    title: "Supabase",
-    bg: "background",
-    fg: "white",
-    icon: <SiSupabase/>,
   },
 };
 
@@ -203,7 +180,7 @@ export type Project = {
   title: string;
   src: string;
   screenshots: string[];
-  skills: { frontend: Skill[]; backend: Skill[] };
+  skills: Skill[];
   content: React.ReactNode | undefined;
   github?: string;
   live: string;
@@ -212,22 +189,19 @@ export type Project = {
 const projects: Project[] = [
   {
     id: "Portofolio",
-    category: "Placeholder",
+    category: "Web Development",
     title: "Portofolio",
     src: "/project_assets/Portofolio.png",
     screenshots: ["/project_assets/Portofolio.png"],
-    skills: {
-      frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra, PROJECT_SKILLS.reactQuery, PROJECT_SKILLS.firebase],
-      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.prisma, PROJECT_SKILLS.python, PROJECT_SKILLS.postgres, PROJECT_SKILLS.sockerio],
-    },
-    live: "",
-    github: "",
+    skills: [PROJECT_SKILLS.react, PROJECT_SKILLS.ts, PROJECT_SKILLS.spline, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.framerMotion, PROJECT_SKILLS.vite],
+    live: "https://virtuozs.com/#",
+    github: "https://github.com/Virtuozs/Portofolio",
     get content() {
       return (
         <div>
           <TypographyP className="font-heading text-2xl text-center">Portofolio</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyP className="font-body ">Project One where I use number One to create Placeholder</TypographyP>
+          <TypographyP className="font-body ">A modern, responsive portfolio built from scratch to showcase my skills, projects, and professional journey. Designed with a clean UI and smooth animations, it serves as my digital business card for recruiters, clients, and collaborators.</TypographyP>
           {/* <TypographyH3 className="my-4 mt-8">Section One</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <SlideShow images={[`${BASE_PATH}/codingducks/problems.png`]} /> */}
@@ -240,22 +214,19 @@ const projects: Project[] = [
   },
   {
     id: "Pokedex",
-    category: "Placeholder",
+    category: "Web Development",
     title: "Pokedex",
     src: "/project_assets/Pokedex.png",
     screenshots: [""],
-    live: "",
-    github: "",
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra, PROJECT_SKILLS.vue],
-      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.prisma, PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker],
-    },
+    live: "https://pokedex-clone-puce.vercel.app/",
+    github: "https://github.com/Virtuozs/WCD03-Assignment-5",
+    skills: [PROJECT_SKILLS.react, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
     get content() {
       return (
         <div>
           <TypographyP className="font-heading text-2xl text-center">Pokedex</TypographyP>
-          <ProjectsLinks live={this.live} />
-          <TypographyP className="font-body ">Project Two where I use number Two to create Placeholder</TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github}/>
+          <TypographyP className="font-body ">A Pokémon encyclopedia web app built with <span className="font-bold">React</span> as my first dive into modern frontend frameworks. Fetches data from the <span className="font-bold">PokéAPI</span> to display Pokémon stats, types, and sprites in an interactive interface.</TypographyP>
           {/* <p className="font-mono mb-2 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}
           {/* <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
           <TypographyH3 className="my-4">Lorem Ipsum</TypographyH3>
@@ -266,44 +237,39 @@ const projects: Project[] = [
     },
   },
   {
-    id: "Project Three",
-    category: "Placeholder",
-    title: "Project Three",
-    src: ``,
+    id: "Book Chain",
+    category: "CLI App",
+    title: "Book Chain",
+    src: "/project_assets/BookChain.png",
     screenshots: [""],
     live: "",
-    skills: {
-      frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind],
-      backend: [PROJECT_SKILLS.sanity],
-    },
+    github: "",
+    skills: [PROJECT_SKILLS.cpp, PROJECT_SKILLS.cmake],
     get content() {
       return (
         <div>
-          <TypographyP className="font-heading text-2xl text-center">Project Three</TypographyP>
-          <ProjectsLinks live={this.live} />
-          <TypographyP className="font-body ">Project Three where I use number Three to create Placeholder</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Book Chain</TypographyP>
+          <ProjectsLinks repo={this.github} />
+          <TypographyP className="font-body ">A C++ terminal-based book management application that allows users to manage books efficiently using custom data structures including a <span className="font-bold">hash table</span>, <span className="font-bold">graph-based recommendation</span>, and <span className="font-bold">insertion sort.</span></TypographyP>
         </div>
       );
     },
   },
   {
-    id: "Portfolio",
-    category: "Placeholder",
-    title: "My Portfolio",
-    src: ``,
-    screenshots: ["1.png"],
+    id: "AmAIGAN",
+    category: "Deep Learning",
+    title: "amAI GAN",
+    src: "/project_assets/amAI GAN.png",
+    screenshots: [""],
     live: "",
-    github: "",
-    skills: {
-      frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next, PROJECT_SKILLS.shadcn, PROJECT_SKILLS.framerMotion, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.spline],
-      backend: [],
-    },
+    github: "https://colab.research.google.com/drive/1y8LJVqK7GBvEi7wu5XaeDyCu9wqLV7OP?usp=sharing",
+    skills: [PROJECT_SKILLS.python, PROJECT_SKILLS.opencv, PROJECT_SKILLS.pandas, PROJECT_SKILLS.tensorflow, PROJECT_SKILLS.numpy],
     get content() {
       return (
         <div>
-          <TypographyP className="font-heading text-2xl text-center">Project Four</TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github}/>
-          <TypographyP className="font-body">Project Four where I use number Four to create Placeholder</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">amAI GAN</TypographyP>
+          <ProjectsLinks live={this.live} colab={this.github}/>
+          <TypographyP className="font-body">A generative deep learning model that automatically colors black-and-white anime sketches using a modified <span className="font-bold">U-NET architecture</span> with <span className="font-bold">Swish-Gated Attention</span> for enhanced detail preservation.</TypographyP>
           {/* <TypographyH3 className="my-4 mt-8">Lorem Ipsum</TypographyH3>
           <p className="font-mono mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <SlideShow images={[`${BASE_PATH}/portfolio/landing.png`]} /> */}
@@ -312,49 +278,39 @@ const projects: Project[] = [
     },
   },
   {
-    id: "Project Five",
-    category: "Placeholder",
-    title: "Project Five",
-    src: ``,
-    screenshots: ["1.png", "2.png"],
+    id: "IndoAPAgility",
+    category: "Intelegent Document Automation",
+    title: "IndoAPAgility",
+    src: "project_assets/IndoAPAgility.jpg",
+    screenshots: [],
     live: "",
     github: "",
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
-      backend: [PROJECT_SKILLS.supabase],
-    },
+    skills: [PROJECT_SKILLS.python, PROJECT_SKILLS.opencv, PROJECT_SKILLS.go, PROJECT_SKILLS.docker, PROJECT_SKILLS.pytorch, PROJECT_SKILLS.redis,  PROJECT_SKILLS.numpy, PROJECT_SKILLS.postgres],
     get content() {
       return (
         <div>
-          <TypographyP className="font-heading text-2xl text-center">Project Five</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">IndoAPAgility</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyP className="font-body">Project Five where I use number Five to create Placeholder</TypographyP>
-          {/* <SlideShow images={[`${BASE_PATH}/ghostchat/1.png`]} /> */}
+          <TypographyP className="font-body">A scalable Document Automation SaaS that extracts structured data from unstructured documents (invoices, contracts, forms) using <span className="font-bold">computer vision, NLP, and rule-based pipelines, then delivers results via a REST API.</span></TypographyP>
         </div>
       );
     },
   },
   {
-    id: "Project Six",
-    category: "Placeholder",
-    title: "Project Six",
-    src: ``,
-    screenshots: ["1.png"],
+    id: "Music-Player",
+    category: "CLI App",
+    title: "Music-Player",
+    src: "/project_assets/MusicPlayer.png",
+    screenshots: [""],
     live: "",
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
-      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.mongo, PROJECT_SKILLS.express, PROJECT_SKILLS.docker],
-    },
+    github: "https://github.com/Virtuozs/Music-Player",
+    skills: [],
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</TypographyP>
+          <TypographyP className="font-heading text-2xl text-center">Music Player</TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[`${BASE_PATH}/jra/1.png`]} />
-          <TypographyH3 className="my-4 mt-8">Lorem Ipsum</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          </ul>
+          <TypographyP className="font-body">A TUI (Text User Interface) music player built in <span className="font-bold">C++</span> using <span className="font-bold">ncurses</span> for interface rendering and low-level audio libraries for playback. Designed for Linux/macOS systems where users want a minimalist, resource-efficient music player controllable entirely via keyboard.</TypographyP>
         </div>
       );
     },

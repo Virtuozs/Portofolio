@@ -1,9 +1,3 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
 import {
   AnimatePresence,
   MotionValue,
@@ -113,7 +107,7 @@ const FloatingDockDesktop = ({
       controls.stop();
       clearInterval(timer.current);
     };
-  }, [showHint]);
+  }, [controls, showHint]);
   return (
     <div className="relative h-fit flex items-center justify-center">
       <motion.div
@@ -123,10 +117,8 @@ const FloatingDockDesktop = ({
         }}
         onMouseLeave={() => mouseX.set(Infinity)}
         className={mergeClass(
-          // "hidden md:flex",
           "flex gap-2 md:gap-4",
           "mx-auto h-16 items-end rounded-2xl bg-accent/20 px-4 pb-3",
-          // "blur-sm brightness-50",
           className
         )}
       >
@@ -142,7 +134,6 @@ const FloatingDockDesktop = ({
           <div
             className={mergeClass(
               "relative w-full h-full flex items-center justify-center",
-              // "backdrop-blur-md"
             )}
           >
             <motion.div

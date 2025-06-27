@@ -55,7 +55,7 @@ const Modall = ({ project }: { project: Project }) => {
             </div>
           </div>
         </ModalTrigger>
-        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto" thumbnailUrl={project.src} Skills={project.skills.frontend}>
+        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto" thumbnailUrl={project.src} Skills={project.skills}>
           <SmoothScroll isInsideModal={true}>
             <ModalContent>
               <ProjectContents project={project} />

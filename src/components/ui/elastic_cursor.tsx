@@ -1,6 +1,3 @@
-/**
- * Disclaimer: This component is not entirely my own
- */
 import {
   useCallback,
   useEffect,
@@ -25,7 +22,6 @@ function useTicker(callback: () => void, paused: boolean) {
   }, [callback, paused]);
 }
 
-// Hook: persistent instance storage
 function useInstance<T extends object>(value: T | (() => T)): T {
   const EMPTY = {} as T;
   const ref = useRef<T>(EMPTY);
@@ -73,14 +69,14 @@ const ElasticCursor = () => {
 
   type Setter = (value: number) => void;
 
-    const set = useInstance<{
+  const set = useInstance<{
     x?: Setter;
     y?: Setter;
     r?: Setter;
     sx?: Setter;
     sy?: Setter;
     width?: Setter;
-    }>({});
+  }>({});
 
   useLayoutEffect(() => {
     if (!jellyRef.current) return;
@@ -198,7 +194,6 @@ const ElasticCursor = () => {
           "fixed left-0 top-0 z-[999] pointer-events-none will-change-transform -translate-x-1/2 -translate-y-1/2 border-2 border-black dark:border-white rounded-lg"
         )}
         style={{
-        // transform: "translate(-50%, -50%)",
         width: `${CURSOR_DIAMETER}px`,
         height: `${CURSOR_DIAMETER}px`,
         backdropFilter: "invert(100%)",

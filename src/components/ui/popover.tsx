@@ -38,7 +38,7 @@ export default function Popover({
       <div onClick={() => setOpen(!open)}>{trigger}</div>
       {open && (
         <div
-          className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 mr-2.5 z-50 rounded-md border shadow-lg p-4 w-[10vw] max-w-[90vw] ${className}`}
+          className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-50 rounded-md border shadow-lg p-4 md:w-[10vw] w-[200px] max-w-[90vw] ${className}`}
         >
           {children}
         </div>

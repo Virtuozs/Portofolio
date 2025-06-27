@@ -30,7 +30,7 @@ export const SkillNames = {
   REDIS: "redis",
   GIT: "git",
   GITHUB: "github",
-  POSTGRESS: "porstgresql",
+  POSTGRESS: "postgresql",
   FLUTTER: "flutter",
   FASTAPI: "fastapi",
   RUST: "rust",
@@ -39,7 +39,7 @@ export const SkillNames = {
   NGINX: "nginx",
   HUGGINGFACE: "huggingface",
   VIM: "vim",
-  MLFLOW: "mlflow",
+  MLFLOW: "ML Flow",
 } as const;
 
 
@@ -172,7 +172,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
   [SkillNames.POSTGRESS]: {
     id: 15,
-    name: "porstgresql",
+    name: "postgresql",
     label: "Postgresql",
     shortDescription: "Can do anything. Especially confuse you with its documentation. 📜",
     color: "#f7b93a",
@@ -246,7 +246,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
   [SkillNames.MLFLOW]: {
     id: 24,
-    name: "mlflow",
+    name: "ML Flow",
     label: "ML Flow",
     shortDescription:
       "Yes, it logs your metrics. No, it doesn’t explain why your model failed. 🤷‍♂️",

@@ -35,7 +35,6 @@ const Nav: React.FC<NavProps> = ({ setIsActive }) => {
             setSelectedLink={setSelectedLink}
             setIsActive={setIsActive}
           />
-          {/* <Footer /> */}
         </div>
       </div>
     </motion.div>

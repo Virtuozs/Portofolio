@@ -20,8 +20,7 @@ const Header = ({ loader }: HeaderProps) => {
     <motion.header
       className={mergeClass(
         styles.header,
-        "z-[9] fixed top-0 w-full px-3 sm:px-6 py-3 sm:py-4 backdrop-blur-md"
-        // "z-[9] fixed w-full box-border px-4 sm:px-5 py-[15px] sm:py-[20px] backdrop-blur-[12px] transition-colors delay-100 duration-500 ease-in"
+        "z-[9] fixed w-full box-border px-4 sm:px-5 py-[15px] sm:py-[20px] backdrop-blur-[12px] transition-colors delay-100 duration-500 ease-in"
       )}
       style={{
         background: isActive ? "hsl(var(--background) / .6)" : "transparent",
@@ -34,45 +33,45 @@ const Header = ({ loader }: HeaderProps) => {
         y: 0,
       }}
       transition={{
-        delay: loader ? 3.5 : 0.5, // 3.5 for loading, .5 can be added for delay
+        delay: loader ? 3.5 : 0.5,
         duration: 0.8,
       }}
     >
       <div className={mergeClass(styles.bar, "flex items-center justify-between")}>
         <Link to="/" className="flex items-center justify-center">
-            <Button variant={"link"} className="text-md">
-                {config.author}
+            <Button variant={"ghost"} className="text-md underline-offset-4 hover:underline">
+                {config.nickname}
             </Button>
         </Link>
 
         <div className="flex items-center gap-6">
-        <ToggleTheme className="w-10 h-10" />
-        <Button
+          <ToggleTheme className="w-10 h-10" />
+          <Button
             variant="ghost"
             onClick={() => setIsActive(!isActive)}
             className={mergeClass(
-            styles.el,
-            "w-10 h-10 p-0 m-0 flex items-center justify-center bg-transparent"
+              styles.el,
+              "w-10 h-10 p-0 m-0 flex items-center justify-center bg-transparent"
             )}
         >
             {isActive ? (
-            <X className="w-6 h-6 transition-transform duration-500 ease-in-out" />
+              <X className="w-6 h-6 transition-transform duration-500 ease-in-out" />
             ) : (
-            <Menu className="w-6 h-6 transition-transform duration-500 ease-in-out" />
+              <Menu className="w-6 h-6 transition-transform duration-500 ease-in-out" />
             )}
-        </Button>
+          </Button>
         </div>
-        </div>
-        <motion.div
-            variants={background}
-            initial="initial"
-            animate={isActive ? "open" : "closed"}
-            className={styles.background}
-            >
-        </motion.div>
-        <AnimatePresence mode="wait">
-            {isActive && <Nav setIsActive={setIsActive} />}
-        </AnimatePresence>
+      </div>
+      <motion.div
+          variants={background}
+          initial="initial"
+          animate={isActive ? "open" : "closed"}
+          className={styles.background}
+          >
+      </motion.div>
+      <AnimatePresence mode="wait">
+          {isActive && <Nav setIsActive={setIsActive} />}
+      </AnimatePresence>
     </motion.header>
   );
 };

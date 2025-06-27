@@ -7,7 +7,7 @@ import SkillsSection from "./pages/skillSection"
 function App() {
 
   return (
-    <main className={mergeClass("bg-slate-100 dark:bg-transparent")}>
+    <main className={mergeClass("bg-background")}>
       <div className="top-0 z-0 fixed w-full h-screen">
         <AnimatedBackground />
       </div>

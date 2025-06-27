@@ -40,20 +40,19 @@ export default function Body({
     }
   }, [location]);
 
-  const getChars = (word: string) =>
-    word.split("").map((char, i) => (
-      <motion.span
-        className="pointer-events-none"
-        custom={[i * 0.02, (word.length - i) * 0.01]}
-        variants={translate}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        key={char + i}
-      >
-        {char}
-      </motion.span>
-    ));
+  const getChars = (word: string) => word.split("").map((char, i) => (
+    <motion.span
+      className="pointer-events-none"
+      custom={[i * 0.02, (word.length - i) * 0.01]}
+      variants={translate}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      key={char + i}
+    >
+      {char}
+    </motion.span>
+  ));
 
   return (
     <div className="flex flex-wrap mt-10 lg:mt-20 lg:max-w-[1200px] flex-col items-end md:flex-row">

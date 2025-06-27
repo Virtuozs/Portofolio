@@ -18,8 +18,7 @@ export default function ToggleTheme({ className }: { className?: string }) {
   };
 
   const goDark = () => {
-    const description =
-      themeDisclaimers.dark[counter.dark % themeDisclaimers.dark.length];
+    const description = themeDisclaimers.dark[counter.dark % themeDisclaimers.dark.length];
 
     setCounter((prev) => ({ ...prev, dark: prev.dark + 1 }));
 
@@ -28,6 +27,7 @@ export default function ToggleTheme({ className }: { className?: string }) {
       className:
         "top-0 right-0 flex fixed md:max-w-[420px] md:top-16 md:right-4",
     });
+    
     setTheme("dark");
   };
 
