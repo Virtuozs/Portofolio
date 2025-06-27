@@ -304,7 +304,7 @@ const projects: Project[] = [
     screenshots: [""],
     live: "",
     github: "https://github.com/Virtuozs/Music-Player",
-    skills: [],
+    skills: [PROJECT_SKILLS.cpp, PROJECT_SKILLS.cmake, ],
     get content() {
       return (
         <div>
