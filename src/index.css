@@ -10,6 +10,7 @@
     --secondary: hsl(230 78% 73%);
     --accent: hsl(230 95% 61%);
     --brand: hsl(20, 100%, 70%);
+    --card: color-mix(in oklab, var(--color-white) 70%, transparent);
 }
 
 .dark {
@@ -18,6 +19,8 @@
     --primary: hsl(230 62% 47%);
     --secondary: hsl(230 78% 27%);
     --accent: hsl(230 95% 39%);
+    --card: color-mix(in oklab, var(--color-black) 70%, transparent);
+
 }
 
 .custom-popover {
@@ -45,6 +48,7 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-border: var(--primary);
+  --color-card: var(--card);
 }
 
 @layer base {

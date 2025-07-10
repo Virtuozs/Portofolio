@@ -19,7 +19,7 @@ const ContactSection = () => {
         </h2>
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 z-[9999]">
-        <Card className="ml-[-8rem] bg-white/70 dark:bg-black/70 backdrop-blur-sm rounded-xl mt-10 md:mt-20">
+        <Card className="ml-[-8rem] bg-card backdrop-blur-sm rounded-xl mt-10 md:mt-20">
           <CardHeader>
             <CardTitle className="text-4xl">Contact Form</CardTitle>
             <CardDescription>
@@ -27,7 +27,7 @@ const ContactSection = () => {
               <a
                 target="_blank"
                 href={`mailto:${config.email}`}
-                className="text-gray-200 cursor-can-hover rounded-lg"
+                className="text-text/40 cursor-can-hover rounded-lg underline"
               >
                 {config.email}
               </a>{" "}
