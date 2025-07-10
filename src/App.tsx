@@ -1,5 +1,6 @@
 import AnimatedBackground from "./components/animated_background"
 import { mergeClass } from "./libs/utils"
+import ContactSection from "./pages/contactSection"
 import HeroSection from "./pages/heroSection"
 import ProjectsSection from "./pages/projectSection"
 import SkillsSection from "./pages/skillSection"
@@ -14,6 +15,7 @@ function App() {
       <HeroSection />
       <SkillsSection />
       <ProjectsSection />
+      <ContactSection />
     </main>
   )
 }

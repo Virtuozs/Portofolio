@@ -9,6 +9,7 @@
     --primary: hsl(230 62% 53%);
     --secondary: hsl(230 78% 73%);
     --accent: hsl(230 95% 61%);
+    --brand: hsl(20, 100%, 70%);
 }
 
 .dark {

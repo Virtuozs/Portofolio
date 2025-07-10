@@ -127,10 +127,12 @@ const ElasticCursor = () => {
         });
 
         gsap.to(jellyRef.current, {
-          width: el.offsetWidth * 1.2,
-          height: el.offsetHeight * 1.2,
+          width: el.offsetWidth + 20,
+          height: el.offsetHeight + 20,
           x: rect.left + rect.width / 2,
           y: rect.top + rect.height / 2,
+          // x: Math.min(rect.right, Math.max(rect.left, e.clientX)),
+          // y: Math.min(rect.bottom, Math.max(rect.top, e.clientY)),
           borderRadius: 10,
           duration: 1.0,
           ease: "elastic.out(1, 0.5)",

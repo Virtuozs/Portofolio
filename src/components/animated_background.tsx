@@ -65,9 +65,29 @@ const STATES = {
       },
     },
   },
+  contact: {
+    desktop: {
+      scale: { x: 0.3, y: 0.3, z: 0.3 },
+      position: { x: 500, y: -250, z: 0 },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+    },
+    mobile: {
+      scale: { x: 0.18, y: 0.18, z: 0.18 },
+      position: { x: 0, y: 150, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+  },
 };
 
-type Section = "hero" | "skills" | "projects";
+type Section = "hero" | "skills" | "projects" | "contact";
 
 const AnimatedBackground = () => {
   const { isLoading, bypassLoading } = usePreloader();
@@ -399,6 +419,47 @@ const AnimatedBackground = () => {
         },
       },
     });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top 30%",
+        end: "bottom bottom",
+        scrub: true,
+        // markers: true,
+        onEnter: () => {
+          setActiveSection("contact");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("contact").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("contact").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("contact").rotation,
+            duration: 1,
+          });
+        },
+        onLeaveBack: () => {
+          setActiveSection("projects");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("projects").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("projects").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("projects").rotation,
+            duration: 1,
+          });
+          // gsap.to(kbd.rotation, { x: 0, duration: 1 });
+        },
+      },
+    });
   };
 
   const getKeycapsAnimation = () => {
@@ -444,7 +505,6 @@ const AnimatedBackground = () => {
     };
     return { start, stop };
   };
-
   return (
         <>
       {isLoading ? (
