@@ -20,6 +20,11 @@ const links: NavLink[] = [
     href: '/#projects',
     thumbnail: '/assets/nav-link-previews/projects.png'
   },
+    {
+    title: 'Contact',
+    href: '/#contact',
+    thumbnail: '/assets/nav-link-previews/projects.png'
+  },
 ];
 
 export { links, type NavLink };
