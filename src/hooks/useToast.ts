@@ -65,6 +65,10 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout)
 }
 
+export type ToastContextType = {
+  toast: (opts: { description: string; className?: string }) => void;
+};
+
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
