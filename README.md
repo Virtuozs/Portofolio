@@ -126,14 +126,6 @@ npm run preview
 - **Smooth Animations**: CSS and JavaScript animations for enhanced UX
 - **Dark/Light Mode**: Toggle between theme modes (if implemented)
 
-## 📱 Responsive Design
-
-The portfolio is fully responsive and tested on:
-- Desktop (1920px and above)
-- Laptop (1024px - 1919px)
-- Tablet (768px - 1023px)
-- Mobile (320px - 767px)
-
 ## 🔧 Development
 
 ### Code Quality
@@ -166,4 +158,4 @@ The portfolio is fully responsive and tested on:
 
 ⭐ If you found this portfolio helpful, please consider giving it a star!
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [Virtuozs]
